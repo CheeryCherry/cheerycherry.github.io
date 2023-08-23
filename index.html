@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
   body {
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,16 +12,16 @@
     margin: 0;
   }
 
-  .heart-container {
+  .container {
     text-align: center;
-    position: relative;
-    animation: heartbeat 1.5s infinite;
   }
 
   .heart {
     position: relative;
     width: 100px;
     height: 90px;
+    display: inline-block;
+    margin: 0 10px;
   }
 
   .heart::before,
@@ -45,22 +47,81 @@
     transform-origin: 100% 100%;
   }
 
-  @keyframes heartbeat {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
+  .star {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin: 0 5px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 18px solid yellow;
+    transform: rotate(35deg);
+  }
+
+  h1 {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #45a049;
   }
 </style>
 </head>
 <body>
 
-<div class="heart-container">
-  <h1>lory</h1>
+<div class="container">
   <div class="heart"></div>
+  <div class="star"></div>
+  <div class="heart"></div>
+  <div class="star"></div>
+  <div class="heart"></div>
+  <h1>亲爱的 Lory，</h1>
+  <p>我想告诉你，我对你的喜欢就像这些爱心和星星一样，明亮而持久。</p>
+  <p>愿意陪伴你走过人生的每一个美好瞬间。</p>
+  <p>请问，你愿意成为我的另一半吗？</p>
+
+  
+  <button class="btn" id="yesBtn">Yes</button>
+  <button class="btn" id="noBtn">No</button>
+
+  <p id="emotion"></p>
 </div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const emotionText = document.getElementById('emotion');
+
+  yesBtn.addEventListener('click', () => {
+    emotionText.textContent = "开心";
+  });
+
+  noBtn.addEventListener('click', () => {
+    emotionText.textContent = "难过";
+  });
+</script>
 
 </body>
 </html>
