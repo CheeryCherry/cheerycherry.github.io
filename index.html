@@ -101,24 +101,27 @@
   <p>我想告诉你，我对你的喜欢就像这些爱心和星星一样，明亮而持久。</p>
   <p>愿意陪伴你走过人生的每一个美好瞬间。</p>
   <p>请问，你愿意成为我的另一半吗？</p>
-
   
+
+
   <button class="btn" id="yesBtn">Yes</button>
-  <button class="btn" id="noBtn">Yes</button>
+  <button class="btn" id="yesAlsoBtn">Yes</button>
 
   <p id="emotion"></p>
+
+
 </div>
 
 <script>
   const yesBtn = document.getElementById('yesBtn');
-  const noBtn = document.getElementById('noBtn');
+  const yesAlsoBtn = document.getElementById('yesAlsoBtn');
   const emotionText = document.getElementById('emotion');
 
   yesBtn.addEventListener('click', () => {
     emotionText.textContent = "开心";
   });
 
-  noBtn.addEventListener('click', () => {
+  yesAlsoBtn.addEventListener('click', () => {
     emotionText.textContent = "也开心";
   });
 </script>
