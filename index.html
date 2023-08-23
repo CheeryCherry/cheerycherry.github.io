@@ -2,12 +2,26 @@
 <html>
 <head>
 <style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .heart-container {
+    text-align: center;
+    position: relative;
+    animation: heartbeat 1.5s infinite;
+  }
+
   .heart {
     position: relative;
     width: 100px;
     height: 90px;
   }
-  
+
   .heart::before,
   .heart::after {
     content: "";
@@ -18,22 +32,35 @@
     border-radius: 50px 50px 0 0;
     background: red;
   }
-  
+
   .heart::before {
     left: 50px;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
   }
-  
+
   .heart::after {
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
   }
+
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
 </style>
 </head>
-<body><h1>lory</h1>
-<div class="heart"></div>
+<body>
+
+<div class="heart-container">
+  <h1>lory</h1>
+  <div class="heart"></div>
+</div>
 
 </body>
 </html>
