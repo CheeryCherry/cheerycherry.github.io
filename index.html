@@ -1,130 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="UTF-8">
-<style>
-  body {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+<head>
+  <title>表白网页</title>
+  <style>
+    body {
+      background-color: #fdeff2;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
 
-  .container {
-    text-align: center;
-  }
+    h1 {
+      color: #ff4081;
+      font-size: 30px;
+      margin-top: 50px;
+    }
 
-  .heart {
-    position: relative;
-    width: 100px;
-    height: 90px;
-    display: inline-block;
-    margin: 0 10px;
-  }
+    p {
+      color: #333;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
 
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 52px;
-    height: 80px;
-    border-radius: 50px 50px 0 0;
-    background: red;
-  }
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-top: 30px;
+    }
 
-  .heart::before {
-    left: 50px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-  }
+    button {
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-  .heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-  }
+    .heart {
+      animation: heartbeat 1s infinite;
+    }
 
-  .star {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin: 0 5px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 18px solid yellow;
-    transform: rotate(35deg);
-  }
-
-  h1 {
-    font-family: Arial, sans-serif;
-    font-size: 36px;
-    color: #333;
-    margin-top: 20px;
-  }
-
-  p {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
-  }
-
-  .btn {
-    margin-top: 20px;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-
-  .btn:hover {
-    background-color: #45a049;
-  }
-</style>
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
+  <h1>亲爱的 Lory</h1>
+  <p>我想对你说：</p>
+  <p>你的笑容如阳光般温暖，你的眼神如星星般闪耀，你的存在让我的世界变得美丽而有意义。</p>
+  <p>每一天与你在一起都是如此特别，我希望能够与你一起走过余生的时光。</p>
+  <button onclick="showResponse()">我想听听你的回应</button>
 
-<div class="container">
-  <div class="heart"></div>
-  <div class="star"></div>
-  <div class="heart"></div>
-  <div class="star"></div>
-  <div class="heart"></div>
-  <h1>亲爱的 Lory，</h1>
-  <p>我想告诉你，我对你的喜欢就像这些爱心和星星一样，明亮而持久。</p>
-  <p>愿意陪伴你走过人生的每一个美好瞬间。</p>
-  <p>请问，你愿意成为我的另一半吗？</p>
-  
+  <div id="response" style="display: none;">
+    <p>请问，你愿意成为我的另一半吗？</p>
+    <button onclick="showContact()">当然愿意！</button>
+  </div>
 
+  <div id="contact" style="display: none;">
+    <p>Dear Lory Prince</p>
+    <p>你的回应让我心动不已。</p>
+      <p>我愿意陪伴你，守护你，直到永远。</p>
+    <p>期待与你的美好未来！</p>
+    <p><small>LR ❤ LY </small></p>
+  </div>
 
-  <button class="btn" id="yesBtn">Yes</button>
-  <button class="btn" id="yesAlsoBtn">Yes</button>
+  <script>
+    function showResponse() {
+      document.getElementById("response").style.display = "block";
+    }
 
-  <p id="emotion"></p>
+    function showContact() {
+      document.getElementById("contact").style.display = "block";
+      animateHearts();
+    }
 
+    function animateHearts() {
+      var hearts = document.getElementsByClassName("heart");
+      for (var i = 0; i < hearts.length; i++) {
+        hearts[i].classList.add("heart");
+      }
+    }
+  </script>
 
-</div>
-
-<script>
-  const yesBtn = document.getElementById('yesBtn');
-  const yesAlsoBtn = document.getElementById('yesAlsoBtn');
-  const emotionText = document.getElementById('emotion');
-
-  yesBtn.addEventListener('click', () => {
-    emotionText.textContent = "开心";
-  });
-
-  yesAlsoBtn.addEventListener('click', () => {
-    emotionText.textContent = "也开心";
-  });
-</script>
-
+  <div>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+  </div>
 </body>
 </html>
